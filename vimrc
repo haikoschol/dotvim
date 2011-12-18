@@ -90,7 +90,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=80 expandtab
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
-au FileType ruby setl softtabstop=2 tabstop=2 expandtab
-au FileType javascript set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
-au FileType json set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
-au FileType coffee set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType javascript setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+au FileType json setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+au FileType coffee setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
