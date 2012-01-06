@@ -4,11 +4,14 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-
 " original repos on github
+Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
+Bundle 'garybernhardt/vim-makegreen'
+
+" probably need to build vim against homebrew python
+" Bundle 'kevinw/pyflakes-vim'
 
 " vim-scripts repos
 "  Bundle 'FuzzyFinder'
@@ -65,7 +68,6 @@ set shiftwidth=4
 set expandtab
 set tabstop=4
 set softtabstop=4
-set textwidth=80
 set encoding=utf-8
 set noswapfile
 set nobackup
@@ -75,18 +77,31 @@ syntax on
 scriptencoding utf-8
 set background=light
 color solarized
+let g:pyflakes_use_quickfix = 0
 
 " mappings
 let mapleader = ','
 nnoremap ; :
 nmap <silent> <leader>/ :nohlsearch<CR>
 cmap cwd lcd %:p:h
+
+" make json readable
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+
+" replace the current selection with the output of running it through python
+vnoremap <f5> :!python<CR>
+
+" run current file with python
+nmap <C-r> :w<CR>:!clear && python %<CR>
+
+" run python unit tests
+nmap <C-t> <leader>t
 
 " filetypes
 au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufRead,BufNewFile *.{twig}  set ft=htmljinja
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile *.py compiler nose
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=80 expandtab
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
