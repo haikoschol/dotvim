@@ -15,6 +15,7 @@ Bundle 'garybernhardt/vim-makegreen'
 
 " vim-scripts repos
 "  Bundle 'FuzzyFinder'
+Bundle 'python.vim'
 
 " non github repos
 "  Bundle 'git://git.wincent.com/command-t.git'
@@ -91,18 +92,11 @@ nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 " replace the current selection with the output of running it through python
 vnoremap <f5> :!python<CR>
 
-" run current file with python
-nmap <C-r> :w<CR>:!clear && python %<CR>
-
-" run python unit tests
-nmap <C-t> <leader>t
-
 " filetypes
 au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufRead,BufNewFile *.{twig}  set ft=htmljinja
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufRead,BufNewFile *.py compiler nose
-au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=80 expandtab
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
 au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
