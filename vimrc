@@ -6,7 +6,6 @@ call vundle#rc()
 
 " original repos on github
 Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'garybernhardt/vim-makegreen'
 
@@ -62,7 +61,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolljump=5
 set scrolloff=5
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set nowrap
+set wrap
 set autoindent
 set shiftwidth=4
 set expandtab
@@ -76,7 +75,7 @@ set mouse=a
 syntax on
 scriptencoding utf-8
 set background=light
-color solarized
+color Tomorrow
 let g:pyflakes_use_quickfix = 0
 
 " mappings
