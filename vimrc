@@ -7,7 +7,6 @@ call vundle#rc()
 " original repos on github
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'garybernhardt/vim-makegreen'
 
 " probably need to build vim against homebrew python
 " Bundle 'kevinw/pyflakes-vim'
