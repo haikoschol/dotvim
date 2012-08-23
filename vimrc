@@ -8,31 +8,15 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 
-" probably need to build vim against homebrew python
-" Bundle 'kevinw/pyflakes-vim'
-
 " vim-scripts repos
-"  Bundle 'FuzzyFinder'
 Bundle 'python.vim'
 
-" non github repos
-"  Bundle 'git://git.wincent.com/command-t.git'
-
 filetype plugin indent on
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 if has('gui_running')
     set guicursor=a:blinkon0
     set guioptions-=T
-    set gfn=Inconsolata:h16
+    set gfn=Consolas:h14
 endif
 
 if has('statusline')
