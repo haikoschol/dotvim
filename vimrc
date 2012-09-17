@@ -82,6 +82,7 @@ au BufRead,BufNewFile *.py compiler nose
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
 au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType eruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType json setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType coffee setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
