@@ -10,6 +10,7 @@ Bundle 'tpope/vim-fugitive'
 
 " vim-scripts repos
 Bundle 'python.vim'
+Bundle 'YankRing.vim'
 
 filetype plugin indent on
 
