@@ -8,31 +8,16 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 
-" probably need to build vim against homebrew python
-" Bundle 'kevinw/pyflakes-vim'
-
 " vim-scripts repos
-"  Bundle 'FuzzyFinder'
 Bundle 'python.vim'
-
-" non github repos
-"  Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'YankRing.vim'
 
 filetype plugin indent on
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 if has('gui_running')
     set guicursor=a:blinkon0
     set guioptions-=T
-    set gfn=Inconsolata:h16
+    set gfn=Consolas:h14
 endif
 
 if has('statusline')
@@ -95,9 +80,11 @@ au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufRead,BufNewFile *.{twig}  set ft=htmljinja
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufRead,BufNewFile *.py compiler nose
+au BufRead,BufNewFile *.json set ft=javascript
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
+au FileType html setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+au FileType eruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
-au FileType json setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType coffee setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
