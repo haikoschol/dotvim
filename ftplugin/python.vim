@@ -16,9 +16,9 @@ function! RunPylint()
    let basecmd = "pylint -f parseable -r n "
    let path = expand('%')
    if path =~ "tests.py$"
-       let basecmd = basecmd . " -d C0103 -d C0301 -d R0904 "
+       let basecmd = basecmd . " -d C0103 -d C0301 -d R0902 -d R0903 -d R0904 "
    endif
-   let cmd = basecmd . path
+   let cmd = basecmd . path . " | egrep -v \"Class '\\w+' has no 'objects' member\""
    execute(":wa")
    execute(":!clear && " . cmd)
 endfunction
