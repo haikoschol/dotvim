@@ -19,5 +19,5 @@ nmap <C-r> :w<CR>:!clear && python %<CR>
 nmap <C-t> :call RunDjangoAppTests()<CR>
 
 " run current file through pylint
-nmap <f4> :!clear && pylint %<CR>
+nmap <f4> :wa<CR>:!clear && pylint %<CR>
 
