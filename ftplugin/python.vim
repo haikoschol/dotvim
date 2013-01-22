@@ -12,6 +12,17 @@ function! RunDjangoAppTests()
     execute(":!clear && echo Running tests in " . module_name . " && python manage.py test " . module_name)
 endfunction
 
+function! RunPylint()
+   let basecmd = "pylint -f parseable -r n "
+   let path = expand('%')
+   if path =~ "tests.py$"
+       let basecmd = basecmd . " -d C0103 -d C0301 -d R0904 "
+   endif
+   let cmd = basecmd . path
+   execute(":wa")
+   execute(":!clear && " . cmd)
+endfunction
+
 " run current file with python
 nmap <C-r> :w<CR>:!clear && python %<CR>
 
@@ -19,5 +30,5 @@ nmap <C-r> :w<CR>:!clear && python %<CR>
 nmap <C-t> :call RunDjangoAppTests()<CR>
 
 " run current file through pylint
-nmap <f4> :wa<CR>:!clear && pylint -f parseable -r n %<CR>
+nmap <f4> :call RunPylint()<CR>
 
