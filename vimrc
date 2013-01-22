@@ -61,7 +61,6 @@ syntax on
 scriptencoding utf-8
 set background=light
 color Tomorrow
-let g:pyflakes_use_quickfix = 0
 
 " mappings
 let mapleader = ','
@@ -79,7 +78,6 @@ vnoremap <f5> :!python<CR>
 au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufRead,BufNewFile *.{twig}  set ft=htmljinja
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
-au BufRead,BufNewFile *.py compiler nose
 au BufRead,BufNewFile *.json set ft=javascript
 au FileType rst setl textwidth=80
 au FileType make setl noexpandtab
@@ -88,3 +86,4 @@ au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType eruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType coffee setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+
