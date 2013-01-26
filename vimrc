@@ -31,7 +31,15 @@ if has('statusline')
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
   
-set number
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+set relativenumber
 set showcmd
 set backspace=indent,eol,start 
 set showmatch
@@ -69,7 +77,10 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 cmap cwd lcd %:p:h
 
 " make json readable
-nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+noremap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+
+" toggle absolute and relative line numbers
+noremap <leader>ln :call NumberToggle()<cr>
 
 " replace the current selection with the output of running it through python
 vnoremap <f5> :!python<CR>
