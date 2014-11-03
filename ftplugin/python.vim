@@ -24,7 +24,7 @@ function! RunPylint()
 endfunction
 
 " run current file with python
-nmap <C-r> :w<CR>:!clear && python %<CR>
+nmap <C-r> :w<CR>:!clear && /usr/bin/env python %<CR>
 
 " run tests in django app of current file
 nmap <C-t> :call RunDjangoAppTests()<CR>
