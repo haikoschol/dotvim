@@ -1,7 +1,8 @@
 set nocompatible
-filetype off
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
 call vundle#rc()
 
 " original repos on github
@@ -97,4 +98,4 @@ au FileType ruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType eruby setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType javascript setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType coffee setl shiftwidth=2 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
-
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
