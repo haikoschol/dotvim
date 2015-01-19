@@ -1,13 +1,13 @@
 set nocompatible
 
+filetype off
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
 call vundle#rc()
 
 " original repos on github
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
+Bundle 'fatih/vim-go'
 
 " vim-scripts repos
 Bundle 'python.vim'
