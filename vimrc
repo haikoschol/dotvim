@@ -15,6 +15,7 @@ Plugin 'rbgrouleff/bclose.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'fatih/vim-go'
+" reminder: YankStack, UltiSnippets
 
 call vundle#end()
 filetype plugin indent on
