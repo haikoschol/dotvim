@@ -173,6 +173,8 @@ try
 catch
 endtry
 
+hi StatusLineNC ctermfg=8 ctermbg=7
+
 " Highlight current line - allows you to track cursor position more easily
 set cursorline
 
