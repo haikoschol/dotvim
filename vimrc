@@ -178,6 +178,13 @@ set cursorline
 
 highlight CursorLine ctermbg=00
 
+" Only highlight the cursor line in the active window
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
