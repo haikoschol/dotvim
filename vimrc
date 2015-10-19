@@ -9,6 +9,11 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rbgrouleff/bclose.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tomtom/tcomment_vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -22,18 +27,8 @@ filetype plugin indent on
 " General
 "------------------------------------------------------------------------------
 
-" toggle absolute and relative line numbers
-noremap <leader>ln :call NumberToggle()<cr>
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-set relativenumber
+" break the Ctrl-C habit
+inoremap <C-c> <nop>
 
 " let's make sure we are in noncompatble mode
 set nocp
@@ -63,6 +58,9 @@ command W w !sudo tee % > /dev/null
 inoremap jj <esc>
 nnoremap JJJJ <nop>
 
+" toggle absolute and relative line numbers
+noremap <leader>ln :call NumberToggle()<cr>
+
 "------------------------------------------------------------------------------
 " VIM user interface
 "------------------------------------------------------------------------------
@@ -85,9 +83,6 @@ set wildmenu
 " Set command-line completion mode
 set wildmode=list:longest,full
 
-" Highlight current line - allows you to track cursor position more easily
-set cursorline
-
 " Completion options (select longest + show menu even if a single match is found)
 set completeopt=longest,menuone
 
@@ -103,7 +98,7 @@ endif
 set ruler
 
 " Show line numbers - could be toggled on/off on-fly by pressing F6
-set number
+set relativenumber
 
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
@@ -170,12 +165,16 @@ set nrformats=octal,hex,alpha
 " Enable syntax highlighting
 syntax enable
 
+" No idea why this has to be "light" when it results in a darker background
+set background=light
 try
-    colorscheme desert
-catch
+    colorscheme base16-ocean
 endtry
 
-set background=dark
+" Highlight current line - allows you to track cursor position more easily
+set cursorline
+
+highlight CursorLine ctermbg=00
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -426,6 +425,9 @@ map <leader>s? z=
 " Misc
 "------------------------------------------------------------------------------
 
+" make json readable
+noremap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
@@ -480,4 +482,19 @@ function! HasPaste()
     en
     return ''
 endfunction
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+"------------------------------------------------------------------------------
+" Plugin configuration
+"------------------------------------------------------------------------------
+
+" CtrlP
+let g:ctrlp_cmd = 'CtrlPMixed'
 
