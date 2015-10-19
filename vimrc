@@ -170,6 +170,7 @@ syntax enable
 set background=light
 try
     colorscheme base16-ocean
+catch
 endtry
 
 " Highlight current line - allows you to track cursor position more easily
