@@ -38,10 +38,6 @@ set nocp
 " Sets how many lines of history VIM has to remember
 set history=700
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -381,6 +377,8 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.go :call DeleteTrailingWS()
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.jsx :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " visual shifting (does not exit Visual mode)
