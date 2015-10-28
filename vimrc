@@ -29,9 +29,6 @@ filetype plugin indent on
 " General
 "------------------------------------------------------------------------------
 
-" break the Ctrl-C habit
-inoremap <C-c> <nop>
-
 " let's make sure we are in noncompatble mode
 set nocp
 
@@ -51,10 +48,6 @@ vmap <Leader>w <ESC><ESC>:w<CR>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
-
-" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
-inoremap jj <esc>
-nnoremap JJJJ <nop>
 
 " toggle absolute and relative line numbers
 noremap <leader>ln :call NumberToggle()<cr>
