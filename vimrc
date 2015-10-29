@@ -42,7 +42,6 @@ let g:mapleader = ","
 
 " Fast saving
 map <Leader>w :w<CR>
-imap <Leader>w <ESC>:w<CR>
 vmap <Leader>w <ESC><ESC>:w<CR>
 
 " :W sudo saves the file
