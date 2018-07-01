@@ -456,6 +456,7 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 " Vim-go
 "------------------------------------------------------------------------------
 let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
 
 " Show a list of interfaces which is implemented by the type under your cursor
 au FileType go nmap <Leader>s <Plug>(go-implements)
