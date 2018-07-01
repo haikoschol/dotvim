@@ -1,23 +1,6 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rbgrouleff/bclose.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'fatih/vim-go'
-" reminder: YankStack, UltiSnippets
-
-call vundle#end()
 filetype plugin indent on
 " Brief help
 " :PluginList       - lists configured plugins
@@ -48,18 +31,9 @@ vmap <Leader>w <ESC><ESC>:w<CR>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
-" toggle absolute and relative line numbers
-noremap <leader>ln :call NumberToggle()<cr>
-
 "------------------------------------------------------------------------------
 " VIM user interface
 "------------------------------------------------------------------------------
-
-" Make sure that coursor is always vertically centered on j/k moves
-set so=999
-
-" add vertical lines on columns
-set colorcolumn=80,120
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
@@ -88,7 +62,8 @@ endif
 set ruler
 
 " Show line numbers - could be toggled on/off on-fly by pressing F6
-set relativenumber
+" set relativenumber
+set number
 
 " Show (partial) commands (or size of selection in Visual mode) in the status line
 set showcmd
@@ -155,34 +130,7 @@ set nrformats=octal,hex,alpha
 " Enable syntax highlighting
 syntax enable
 
-" No idea why this has to be "light" when it results in a darker background
-set background=light
-try
-    colorscheme base16-ocean
-catch
-endtry
-
 hi StatusLineNC ctermfg=8 ctermbg=7
-
-" Highlight current line - allows you to track cursor position more easily
-set cursorline
-
-highlight CursorLine ctermbg=00
-
-" Only highlight the cursor line in the active window
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
-augroup END
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -497,8 +445,12 @@ endfunc
 " Plugin configuration
 "------------------------------------------------------------------------------
 
-" CtrlP
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 "------------------------------------------------------------------------------
 " Vim-go
